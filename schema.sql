@@ -1,7 +1,7 @@
 
-CREATE DATABASE menu;
+CREATE DATABASE testMenu;
 
-USE menu; 
+USE testMenu; 
 
 CREATE TABLE lunch (
     id INT AUTO_INCREMENT,
