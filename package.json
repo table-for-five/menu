@@ -9,10 +9,13 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch",
+    "test": "jest"
   },
   "dependencies": {
     "faker": "^4.1.0",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -20,6 +23,8 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.1.0",
+    "supertest": "^3.4.2",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   }

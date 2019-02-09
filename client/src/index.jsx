@@ -1,18 +1,5 @@
-import React from 'react';
+import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+import Menu from "./components/Menu.jsx";
 
-
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
-	render() {
-		return (<div>
-
-		</div>)
-	}
-}
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Menu />, document.getElementById('app'));
