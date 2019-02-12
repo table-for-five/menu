@@ -3,48 +3,27 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const faker = require('faker');
 
+var url = require('url');
+
+
 let app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(__dirname + '../client/dist'));
+app.use(express.static('../client/dist'));
 
-app.post('/menu', (req, res) => {
-
-
-    for (let i = 0; i < 100; i++) {
-        let name = food[i];
-        let description = faker.lorem.sentence();
-        let price = Math.random() * (25 - 9) + 9;
-
-        let params = [name, description, price];
-
-        let queryStr = 'insert into dinner(name, description,price) \
-        values (?,?,?)';
-
-        con.connection.query(queryStr, params, function (err, result) {
-            if (err) {
-                console.log("error message: ", err);
-                return;
-            }
-            console.log('done: ', result);
-        });
-
-    }
-});
-
-app.get("/getMenu", function (req, res) {
+app.get("/menu", function (req, res) {
     let meal = req.query.q;
-    let queryStr = "select * from" + meal;
+    console.log('MEAL: ', meal);
+    let queryStr = "select * from " + meal;
     connection.connection.query(queryStr, function (err, result) {
         if (err) {
             console.log("error message: ", err);
             return;
         }
-
         res.send(result);
-
     });
+
 });
 
 let port = 3030;
@@ -52,4 +31,4 @@ app.listen(port, function () {
     console.log('listening on port', port);
 });
 
-module.exports = { app };
+// module.exports = { app };
