@@ -1,5 +1,6 @@
 import React from "react";
 import MenuItem from './MenuItem.jsx';
+import styled from 'styled-components';
 
 class MenuList extends React.Component {
   constructor(props) {
@@ -7,27 +8,6 @@ class MenuList extends React.Component {
   }
 
   render() {
-    const mainBox = {
-      flexBasis: '80%'
-    }
-
-    const line = {
-      paddingTop: '10px',
-      paddingBottom: '10px',
-      borderBottom: '1px solid #d8d9db'
-    }
-
-    const close = {
-      fontFamily: 'Quicksand',
-      float: '0',
-      margin: '0 auto'
-    }
-
-    const collapse = {
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
-
     const arr1 = this.props.lists.slice(0, 20);
     const arr2 = this.props.lists.slice(20, 40);
     const arr3 = this.props.lists.slice(40, 60);
@@ -36,24 +16,63 @@ class MenuList extends React.Component {
 
     return (
       <div>
-        <div style={mainBox}>
+        <MainBox>
           {lists.map((list, i) => {
             return (
               <div key={i}>
                 <MenuItem items={list} />
-                <div style={line}></div>
-                <br />
+                <ItemLine></ItemLine>
+                <Space />
               </div>
             );
           })}
+        </MainBox>
 
-        </div>
-        <p style={close}>Thank you for coming!</p>
-        <div style={collapse}><button >Hi</button></div>
+        <ClosingText>Thank you for coming!</ClosingText>
+        <div><CollapseButton>Collapse menu</CollapseButton></div>
+        <Space /><Space />
       </div>
-
     );
   }
 }
 
 export default MenuList;
+
+// Set up style-component 
+
+const Space = styled.br``;
+
+const ItemLine = styled.div`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d8d9db;
+`;
+
+const MainBox = styled.div`
+  flexBasis: 80%;
+`;
+
+const ClosingText = styled.div`
+  font-family: Quicksand;
+  font-weight: bolder;
+`;
+
+const CollapseButton = styled.button`
+  zIndex: 20;
+  font-weight: bolder;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #d8d9db;
+  font-size: smaller;
+  font-family: Quicksand;
+  font-weight: bolder;
+  padding: 15px;
+  position: absolute;
+  left: 380px;
+  right: 160px;
+  width: calc(30% - 70px);
+  high: 30px;
+  margin: 10px;
+  margin-bottom: 30px;
+  outline-color: red;
+`;
