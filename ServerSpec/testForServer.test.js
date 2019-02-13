@@ -1,12 +1,11 @@
-// import { request } from "https";
 const request = require('supertest');
-const app = require("express")();
+const app = require('../server/server.js');
 
-
-describe('GET/getMenu', function () {
-    it('respond with json', function (done) {
-        request(app)
-            .get('/getMenu')
-            .expect(200, done);
+describe('GET/menu', function () {
+  test("It responds GET request", (done) => {
+    request(app).get('/menu').then((response) => {
+      expect(response.statusCode).toBe(200);
+      done();
     });
+  });
 });

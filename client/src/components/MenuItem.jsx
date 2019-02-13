@@ -1,78 +1,77 @@
 import React from "react";
+import styled from 'styled-components';
 
 const MenuItem = (props) => {
-  const mainBox = {
-    paddingTop: '10px',
-    display: 'flex'
-  }
-
-  const subBox = {
-    flex: '1'
-  }
-
-  const subBox1 = {
-    flex: '2'
-  }
-
-  const nameStyle = {
-    fontFamily: 'Quicksand',
-    fontWeight: 'bolder',
-    fontSize: 'smaller'
-  }
-
-  const description = {
-    fontFamily: 'Quicksand',
-    fontWeight: 'lighter',
-    fontSize: '11px'
-  }
-
-  const wordSpace = {
-    fontSize: '11px',
-    float: 'middle'
-  }
   return (
-
-    <div style={mainBox}>
-      <div style={subBox}>
+    <OutterBox>
+      <SubBox>
         <div>
           {props.items.map((item, i) => {
 
             if (i < 10) {
               return (
-                <div className="name" key={i} style={nameStyle}>
+                <ItemName key={i}>
                   {item.name}
-                  <div className="description" style={description} >
-                    {item.description} <span style={wordSpace}>{'$' + item.price}</span>
-                    <p></p>
-                  </div>
-                </div>
+                  <Description>
+                    {item.description} <Price>{'$' + item.price}</Price>
+                    <Space />
+                  </Description>
+                </ItemName>
               );
             }
           })}
         </div>
-      </div>
+      </SubBox>
 
-
-      <div style={subBox}>
+      <SubBox>
         <div>
           {props.items.map((item, i) => {
             if (i >= 10 && i < 20) {
               return (
-                <div className="name" key={i} style={nameStyle}>
+                <ItemName key={i}>
                   {item.name}
-                  <div className="description" style={description} >
-                    {item.description} <span style={wordSpace}>{'$' + item.price}</span>
-                    <p></p>
-                  </div>
-                </div>
+                  <Description>
+                    {item.description} <Price>{'$' + item.price}</Price>
+                    <Space />
+                  </Description>
+                </ItemName>
               );
             }
           })}
         </div>
+      </SubBox>
 
-      </div>
-    </div>
+    </OutterBox>
   );
 }
 
 export default MenuItem;
+
+// Set up style-component
+
+const Space = styled.p``;
+
+const OutterBox = styled.div`
+  padding-top:10px;
+  display:flex;
+`;
+
+const SubBox = styled.div`
+  flex: 1;
+`;
+
+const ItemName = styled.div`
+  font-family: Quicksand;
+  font-weight: bolder;
+  font-size: smaller;
+`;
+
+const Description = styled.div`
+  font-family: Quicksand;
+  font-weight: lighter;
+  font-size: 11px;
+`;
+
+const Price = styled.span`
+  font-size: 11px;
+`;
