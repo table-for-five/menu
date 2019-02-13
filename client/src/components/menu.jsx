@@ -56,7 +56,7 @@ export default Menu;
 const NextLine = styled.br``;
 
 const Text = styled.p`
-  fontSize: 1.2em;
+  font-size: 1.2em;
   font-family: Quicksand;
   font-weight: bolder;  
 `;
