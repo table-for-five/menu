@@ -14,7 +14,7 @@ class Menu extends React.Component {
   }
 
   componentDidMount() {
-    this.updateMenu(event);
+    this.updateMenu();
   }
 
   updateMenu(event) {
@@ -37,8 +37,8 @@ class Menu extends React.Component {
         <Text>Menu</Text>
         <ButtonLine>
           <TopButton type='button' value='lunch' onClick={this.updateMenu}>Lunch</TopButton>
-          <TopButton type='button' value='lunch' onClick={this.updateMenu}>Lunch</TopButton>
-          <TopButton type='button' value='lunch' onClick={this.updateMenu}>Lunch</TopButton>
+          <TopButton type='button' value='dinner' onClick={this.updateMenu}>Dinner</TopButton>
+          <TopButton type='button' value='dessert' onClick={this.updateMenu}>Dessert</TopButton>
         </ButtonLine>
         <NextLine /><NextLine />
 
@@ -57,15 +57,15 @@ const NextLine = styled.br``;
 
 const Text = styled.p`
   fontSize: 1.2em;
-  fontFamily: Quicksand;
-  fontWeight: bolder;  
+  font-family: Quicksand;
+  font-weight: bolder;  
 `;
 
 const ButtonLine = styled.div`
-  borderTop: 1px solid #d8d9db;
-  paddingTop: 10px;
-  paddingBottom: 10px;
-  borderBottom: 1px solid #d8d9db;
+  border-top: 1px solid #d8d9db;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d8d9db;
 `;
 
 const TopButton = styled.button`
