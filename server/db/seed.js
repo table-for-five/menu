@@ -21,6 +21,7 @@ function seeding(meal, whichMeal) {
         console.log("    1. Did you insert schema.sql?       |");
         console.log("    2. Did you connect your server ?    | ");
         console.log("    3. Do you have MySQL in computer?   | ");
+        console.log("    4. Did you change MySQL password?   | ");
         console.log("                                        | ");
         console.log("----------------------------------------\n\n");
 
