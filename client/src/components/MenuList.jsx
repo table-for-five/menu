@@ -5,6 +5,17 @@ import styled from 'styled-components';
 class MenuList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isExpanded: false
+    }
+    this.handleToggle = this.handleToggle.bind(this);
+  }
+
+  handleToggle(e) {
+    e.preventDefault();
+    this.setState({
+      isExpanded: !this.state.isExpanded
+    })
   }
 
   render() {
@@ -12,11 +23,19 @@ class MenuList extends React.Component {
     const arr2 = this.props.lists.slice(20, 40);
     const arr3 = this.props.lists.slice(40, 60);
     const arr4 = this.props.lists.slice(60, 80);
-    const lists = [arr1, arr2, arr3, arr4];
+    const arr5 = this.props.lists.slice(80, 100);
+    const lists = [arr2, arr3, arr4, arr5];
 
     return (
       <div>
-        <MainBox>
+
+        <TopLevel>
+          <MenuItem items={arr1} />
+          <ItemLine></ItemLine>
+          <Space />
+        </TopLevel>
+
+        <MainBox expanded={this.state.isExpanded}>
           {lists.map((list, i) => {
             return (
               <div key={i}>
@@ -29,8 +48,10 @@ class MenuList extends React.Component {
         </MainBox>
 
         <ClosingText>Thank you for coming!</ClosingText>
-        <div><CollapseButton>Collapse menu</CollapseButton></div>
+        <div><CollapseButton onClick={this.handleToggle}>Collapse menu</CollapseButton></div>
         <Space /><Space />
+
+
       </div>
     );
   }
@@ -48,8 +69,13 @@ const ItemLine = styled.div`
   border-bottom: 1px solid #d8d9db;
 `;
 
+const TopLevel = styled.div`
+   flexBasis: 80%; 
+`;
+
 const MainBox = styled.div`
   flexBasis: 80%;
+  display: ${(props) => props.expanded ? 'block' : 'none'};
 `;
 
 const ClosingText = styled.div`
@@ -74,5 +100,8 @@ const CollapseButton = styled.button`
   high: 30px;
   margin: 10px;
   margin-bottom: 30px;
-  outline-color: red;
+  outline: none;
+  &:hover ${CollapseButton} {
+    border: 2px solid red;
+  }
 `;
