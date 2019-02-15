@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ajax from '../lib/ajax';
 import MenuList from './MenuList.jsx';
 import styled from 'styled-components';
+import Collapsible from './Collapsible.jsx';
 
 class Menu extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ class Menu extends React.Component {
   }
 
   componentDidMount() {
-    this.updateMenu(event);
+    this.updateMenu();
   }
 
   updateMenu(event) {
@@ -37,12 +38,13 @@ class Menu extends React.Component {
         <Text>Menu</Text>
         <ButtonLine>
           <TopButton type='button' value='lunch' onClick={this.updateMenu}>Lunch</TopButton>
-          <TopButton type='button' value='lunch' onClick={this.updateMenu}>Lunch</TopButton>
-          <TopButton type='button' value='lunch' onClick={this.updateMenu}>Lunch</TopButton>
+          <TopButton type='button' value='dinner' onClick={this.updateMenu}>Dinner</TopButton>
+          <TopButton type='button' value='dessert' onClick={this.updateMenu}>Dessert</TopButton>
         </ButtonLine>
         <NextLine /><NextLine />
 
         <MenuList lists={this.state.menuBoard} />
+        <NextLine /><NextLine />
 
       </div>
     );
@@ -56,27 +58,27 @@ export default Menu;
 const NextLine = styled.br``;
 
 const Text = styled.p`
-  fontSize: 1.2em;
-  fontFamily: Quicksand;
-  fontWeight: bolder;  
-`;
+    font-size: 1.2em;
+    font-family: Quicksand;
+    font-weight: bolder;  
+  `;
 
 const ButtonLine = styled.div`
-  borderTop: 1px solid #d8d9db;
-  paddingTop: 10px;
-  paddingBottom: 10px;
-  borderBottom: 1px solid #d8d9db;
-`;
+    border-top: 1px solid #d8d9db;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d8d9db;
+  `;
 
 const TopButton = styled.button`
-  cursor: pointer;
-  background-color: white;
-  border: 1px solid #d8d9db;
-  font-size: smaller;
-  font-family: Quicksand;
-  font-weight: bolder;
-  padding: 8px;
-  width: 100px;
-  margin: 10px;
-  outline-color: red;
-`;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid #d8d9db;
+    font-size: smaller;
+    font-family: Quicksand;
+    font-weight: bolder;
+    padding: 8px;
+    width: 100px;
+    margin: 10px;
+    outline-color: red;
+  `;

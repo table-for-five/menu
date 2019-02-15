@@ -7,7 +7,6 @@ const MenuItem = (props) => {
       <SubBox>
         <div>
           {props.items.map((item, i) => {
-
             if (i < 10) {
               return (
                 <ItemName key={i}>
