@@ -22,7 +22,7 @@ const MenuItem = (props) => {
         </div>
       </SubBox>
 
-      <SubBox>
+      <SubBox2>
         <div>
           {props.items.map((item, i) => {
             if (i >= 10 && i < 20) {
@@ -38,7 +38,7 @@ const MenuItem = (props) => {
             }
           })}
         </div>
-      </SubBox>
+      </SubBox2>
 
     </OutterBox>
   );
@@ -57,6 +57,10 @@ const OutterBox = styled.div`
 
 const SubBox = styled.div`
   flex: 1;
+`;
+
+const SubBox2 = styled.div`
+  flex: 3;
 `;
 
 const ItemName = styled.div`

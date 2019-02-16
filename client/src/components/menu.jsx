@@ -9,7 +9,8 @@ class Menu extends React.Component {
   constructor() {
     super();
     this.state = {
-      menuBoard: []
+      menuBoard: [],
+      buttonClick: ""
     }
     this.updateMenu = this.updateMenu.bind(this);
   }
@@ -26,27 +27,30 @@ class Menu extends React.Component {
         console.log(err);
         return;
       }
+
       this.setState({
-        menuBoard: data
+        menuBoard: data,
+        changeBorder: temp
       })
     });
   }
 
   render() {
     return (
-      <div >
+      <Container>
         <Text>Menu</Text>
         <ButtonLine>
-          <TopButton type='button' value='lunch' onClick={this.updateMenu}>Lunch</TopButton>
-          <TopButton type='button' value='dinner' onClick={this.updateMenu}>Dinner</TopButton>
-          <TopButton type='button' value='dessert' onClick={this.updateMenu}>Dessert</TopButton>
+          <TopButton1 type='button' borderChanged={this.state.changeBorder} value='lunch' onClick={this.updateMenu}>Lunch</TopButton1>
+          <TopButton2 type='button' borderChanged={this.state.changeBorder} value='dinner' onClick={this.updateMenu}>Dinner</TopButton2>
+          <TopButton3 type='button' borderChanged={this.state.changeBorder} value='dessert' onClick={this.updateMenu}>Dessert</TopButton3>
         </ButtonLine>
         <NextLine /><NextLine />
 
         <MenuList lists={this.state.menuBoard} />
         <NextLine /><NextLine />
 
-      </div>
+
+      </Container>
     );
   }
 }
@@ -54,6 +58,10 @@ class Menu extends React.Component {
 export default Menu;
 
 //Set up styled-component
+
+const Container = styled.div`
+  margin: 2% 0 2% 0%;
+`;
 
 const NextLine = styled.br``;
 
@@ -70,15 +78,42 @@ const ButtonLine = styled.div`
     border-bottom: 1px solid #d8d9db;
   `;
 
-const TopButton = styled.button`
+const TopButton1 = styled.button`
+
     cursor: pointer;
     background-color: white;
-    border: 1px solid #d8d9db;
+    border: ${(props) => props.borderChanged === 'lunch' ? '2px solid #DA3743' : '1px solid #d8d9db'};
     font-size: smaller;
     font-family: Quicksand;
     font-weight: bolder;
     padding: 8px;
     width: 100px;
     margin: 10px;
-    outline-color: red;
+    outline : none;
+  `;
+
+const TopButton2 = styled.button`
+  cursor: pointer;
+  background-color: white;
+  border: ${(props) => props.borderChanged === 'dinner' ? '2px solid #DA3743' : '1px solid #d8d9db'};
+  font-size: smaller;
+  font-family: Quicksand;
+  font-weight: bolder;
+  padding: 8px;
+  width: 100px;
+  margin: 10px;
+  outline : none;
+`;
+
+const TopButton3 = styled.button`
+    cursor: pointer;
+    background-color: white;
+    border: ${(props) => props.borderChanged === 'dessert' ? '2px solid #DA3743' : '1px solid #d8d9db'};
+    font-size: smaller;
+    font-family: Quicksand;
+    font-weight: bolder;
+    padding: 8px;
+    width: 100px;
+    margin: 10px;
+    outline : none;
   `;
