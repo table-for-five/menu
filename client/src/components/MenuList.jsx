@@ -1,6 +1,9 @@
 import React from "react";
 import MenuItem from './MenuItem.jsx';
 import styled from 'styled-components';
+import jump from 'jump.js';
+
+
 
 class MenuList extends React.Component {
   constructor(props) {
@@ -8,6 +11,7 @@ class MenuList extends React.Component {
     this.state = {
       isExpanded: false
     }
+
     this.handleToggle = this.handleToggle.bind(this);
   }
 
@@ -16,6 +20,7 @@ class MenuList extends React.Component {
     this.setState({
       isExpanded: !this.state.isExpanded
     })
+    document.documentElement.scrollTop = 0;
   }
 
   render() {
@@ -31,8 +36,11 @@ class MenuList extends React.Component {
 
         <TopLevel>
           <MenuItem items={arr1} />
+
           <ItemLine></ItemLine>
+          {/* <Blur></Blur> */}
           <Space />
+
         </TopLevel>
 
         <MainBox expanded={this.state.isExpanded}>
@@ -40,7 +48,7 @@ class MenuList extends React.Component {
             return (
               <div key={i}>
                 <MenuItem items={list} />
-                <ItemLine></ItemLine>
+                <ItemLine />
                 <Space />
               </div>
             );
@@ -50,7 +58,6 @@ class MenuList extends React.Component {
         <ClosingText>Thank you for coming!</ClosingText>
         <div><CollapseButton onClick={this.handleToggle}>Collapse menu</CollapseButton></div>
         <Space /><Space />
-
 
       </div>
     );
@@ -70,7 +77,17 @@ const ItemLine = styled.div`
 `;
 
 const TopLevel = styled.div`
-   flexBasis: 80%; 
+  flexBasis: 80%; 
+`;
+
+const Blur = styled.div`
+  content: " ";
+  display: block;
+  position: relative;
+  bottom: 300px;
+  height: 300px;
+  background-image: linear-gradient(to top,#ff4,rgba(255,255,255,0));
+  background-color: rgba(255,255,255,.2);
 `;
 
 const MainBox = styled.div`
@@ -102,6 +119,6 @@ const CollapseButton = styled.button`
   margin-bottom: 30px;
   outline: none;
   &:hover ${CollapseButton} {
-    border: 2px solid red;
+    border: 2px solid #DA3743;
   }
 `;
