@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import ajax from '../lib/ajax';
 import MenuList from './MenuList.jsx';
 import styled from 'styled-components';
-import Collapsible from './Collapsible.jsx';
 
 class Menu extends React.Component {
   constructor() {
@@ -47,8 +46,7 @@ class Menu extends React.Component {
         <NextLine /><NextLine />
 
         <MenuList lists={this.state.menuBoard} />
-        <NextLine /><NextLine />
-
+        <NextLine />
 
       </Container>
     );
@@ -75,6 +73,7 @@ const ButtonLine = styled.div`
     border-top: 1px solid #d8d9db;
     padding-top: 10px;
     padding-bottom: 10px;
+    width:900px;
     border-bottom: 1px solid #d8d9db;
   `;
 
@@ -116,4 +115,10 @@ const TopButton3 = styled.button`
     width: 100px;
     margin: 10px;
     outline : none;
+  `;
+
+const ItemLine = styled.div`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d8d9db;
   `;
