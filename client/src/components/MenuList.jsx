@@ -49,30 +49,31 @@ class MenuList extends React.Component {
 
           </Blur>
           <Space />
+
+          <MainBox expanded={this.state.isExpanded}>
+            {lists.map((list, i) => {
+              return (
+                <div key={i}>
+                  <MenuItem items={list} />
+                  <ItemLine />
+                  <Space />
+                </div>
+              );
+            })}
+          </MainBox>
+
+          <HiddenCollapseButton showButton={this.state.showFullMenu}>
+            <ClosingText>Thank you for coming!</ClosingText>
+            <CollapseButton onClick={this.handleToggle}>Collapse menu</CollapseButton>
+            <BottomLine />
+            <LastUpdate check={this.state.clickFullMenu}>
+              <DateForLastUpdate>Last Updated: Febuary 16, 2019</DateForLastUpdate>
+              <Image src={imageURL} />
+            </LastUpdate>
+
+            <Space /><Space />
+          </HiddenCollapseButton>
         </TopLevel>
-
-        <MainBox expanded={this.state.isExpanded}>
-          {lists.map((list, i) => {
-            return (
-              <div key={i}>
-                <MenuItem items={list} />
-                <ItemLine />
-                <Space />
-              </div>
-            );
-          })}
-        </MainBox>
-        <HiddenCollapseButton showButton={this.state.showFullMenu}>
-          <ClosingText>Thank you for coming!</ClosingText>
-          <CollapseButton onClick={this.handleToggle}>Collapse menu</CollapseButton>
-          <BottomLine />
-          <LastUpdate check={this.state.clickFullMenu}>
-            <DateForLastUpdate>Last Updated: Febuary 16, 2019</DateForLastUpdate>
-            <Image src={imageURL} />
-          </LastUpdate>
-
-          <Space /><Space />
-        </HiddenCollapseButton>
 
       </div>
     );
@@ -118,14 +119,12 @@ const LastUpdate = styled.div`
   display:flex;
   position: relative;
   top: ${(props) => props.check ? '' : '300px'}; 
-  ${'' /* height: 30px; */}
   font-size: xx-small;
   font-family:Quicksand;
   font-weight: bolder;
 `;
 
 const DateForLastUpdate = styled.p`
-  ${'' /* flex: 1; */}
   font-size: xx-small;
   font-family:Quicksand;
   font-weight: bolder; 
@@ -186,7 +185,6 @@ const ClosingText = styled.div`
 `;
 
 const CollapseButton = styled.button`
-  ${'' /* zIndex: 20; */}
   font-weight: bolder;
   cursor: pointer;
   background-color: white;
@@ -195,15 +193,13 @@ const CollapseButton = styled.button`
   font-family: Quicksand;
   font-weight: bold;
   padding: 15px;
-
-  position: absolute;
-
+  position: fixed;
+  bottom: 6em;
   left: 280px;
   right: 160px;
   width: 300px;
   high: 30px;
-  margin: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 90px;
   outline: none;
   &:hover ${CollapseButton} {
     border: 2px solid #DA3743;

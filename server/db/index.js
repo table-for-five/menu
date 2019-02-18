@@ -5,9 +5,9 @@ var connection = mysql.createConnection({
   host: '127.0.0.1',
   database: 'menu',
   user: 'root',
-  password: '',
+  password: '123',
 });
 
-// connection.connect();
+connection.connect();
 
 module.exports = { connection: connection };
