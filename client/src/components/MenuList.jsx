@@ -87,6 +87,7 @@ export default MenuList;
 const Space = styled.br``;
 
 const ItemLine = styled.div`
+
   padding-top: 10px;
   padding-bottom: 10px;
   width:900px;
@@ -94,10 +95,11 @@ const ItemLine = styled.div`
 `;
 
 const BottomLine = styled.div`
-  padding-top: 10px;
-  padding-bottom: 10px;
+
+  padding-top: 30px;
+  padding-bottom: 5px; */}
   height:80px;
-  width:900px;
+  width:620px;
   border-bottom: 1px solid #d8d9db;
 `;
 
@@ -132,7 +134,7 @@ const DateForLastUpdate = styled.p`
 
 const Image = styled.img`
   position: relative;
-  left: 460px;
+  left: 160px;
   padding-top: 13px;
   padding-bottom: 16px;
 `;
@@ -147,10 +149,10 @@ const FullMenuButton = styled.button`
   font-weight: bold;
   padding: 15px;
   position: relative;
-  left: 280px;
+  left: 180px;
   right: 160px;
   top:300px;
-  width: 300px;
+  width: 200px;
   high: 30px;
   margin: 10px;
   margin-bottom: 30px;
@@ -195,10 +197,10 @@ const CollapseButton = styled.button`
   padding: 15px;
   position: fixed;
   bottom: 6em;
-  left: 280px;
+  left: 180px;
   right: 160px;
-  width: 300px;
-  high: 30px;
+  width: 200px;
+  high: 20px;
   margin-bottom: 90px;
   outline: none;
   &:hover ${CollapseButton} {
