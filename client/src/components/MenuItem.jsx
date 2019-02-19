@@ -60,7 +60,7 @@ const SubBox = styled.div`
 `;
 
 const SubBox2 = styled.div`
-  flex: 2;
+  flex: 1;
 `;
 
 const ItemName = styled.div`
