@@ -58,7 +58,9 @@ export default Menu;
 //Set up styled-component
 
 const Container = styled.div`
-  margin: 2% 0 2% 0%;
+  max-width: 620px;
+  overflow: hidden;
+  ${'' /* margin: 2% 0 2% 0%; */}
 `;
 
 const NextLine = styled.br``;
