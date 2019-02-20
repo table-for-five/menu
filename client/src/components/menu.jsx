@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import ajax from '../lib/ajax';
 import MenuList from './MenuList.jsx';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+const { styled } = window;
 
 class Menu extends React.Component {
   constructor() {

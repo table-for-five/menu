@@ -1,6 +1,7 @@
 import React from "react";
 import MenuList from './MenuList.jsx';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+const { styled } = window;
 
 class Collapsible extends React.Component {
   constructor(props) {
