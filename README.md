@@ -28,7 +28,7 @@ node server/db seed.js
 
 In a static index.html page, include the following:
 A script tag which invokes ReactDom.render on 'menu'
-A script tag with source http://localhost:3030/client/dist/bundle.js
+A script tag with source http://localhost:3030/bundle.js
 
 ## Requirements
 
