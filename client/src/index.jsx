@@ -1,5 +1,5 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-import Menu from "./components/Menu.jsx";
+import Menu from "./components/menu.jsx";
 
-ReactDOM.render(<Menu />, document.getElementById('app'));
+window.Menu = App; 
