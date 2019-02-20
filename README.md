@@ -17,7 +17,13 @@
 
 ## Usage
 
-> Some usage instructions
+To get started:
+
+Install dependencies (see below)
+
+In a static index.html page, include the following:
+A script tag which invokes ReactDom.render on 'menu'
+A script tag with source http://localhost:3030/client/dist/bundle.js
 
 ## Requirements
 
@@ -34,6 +40,18 @@ From within the root directory:
 
 ```sh
 npm install -g webpack
+npm install -g nodemon
 npm install
 ```
+# Dev Environment 
+
+Run server in nodemon to continuously watch for changes. Run webpack to continuously transpile to the server's entrypoint:
+
+npm run server
+npm run react-dev
+
+## Testing
+This application uses the Jest framework with Enzyme library for testing:
+
+npm run test
 
