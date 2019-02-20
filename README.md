@@ -19,11 +19,14 @@
 
 To get started:
 
--Install dependencies (see below)
--To seed data: 
+- Install dependencies (see below)
+- Add style sheet in html file 
+- To seed data: 
 
 ```sh 
-node server/db seed.js
+1. <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"> 
+2. (open your MySQL) mysql -u root -p < schema.sql 
+2. node server/db/seed.js
 ```
 
 In a static index.html page, include the following:
