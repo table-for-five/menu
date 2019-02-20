@@ -20,7 +20,7 @@
 To get started:
 
 -Install dependencies (see below)
--To seed data(optional): 
+-To seed data: 
 
 ```sh 
 node server/db seed.js
