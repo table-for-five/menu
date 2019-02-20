@@ -19,7 +19,12 @@
 
 To get started:
 
-Install dependencies (see below)
+-Install dependencies (see below)
+-To seed data(optional): 
+
+```sh 
+node server/db seed.js
+```
 
 In a static index.html page, include the following:
 A script tag which invokes ReactDom.render on 'menu'
