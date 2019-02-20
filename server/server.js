@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 
 let server = express();
+
+server.use(cors());
 server.use(express.static('../client/dist'));
 
 server.get("/menu", function (req, res) {
