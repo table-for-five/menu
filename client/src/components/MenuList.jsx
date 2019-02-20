@@ -1,6 +1,7 @@
 import React from "react";
 import MenuItem from './MenuItem.jsx';
-import styled from 'styled-components';
+// import styled from 'styled-components';
+const { styled } = window;
 
 class MenuList extends React.Component {
   constructor(props) {
