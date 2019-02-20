@@ -6,7 +6,7 @@ const path = require('path');
 let server = express();
 
 server.use(cors());
-server.use(express.static(express.static(__dirname,'../client/dist')));
+server.use(express.static(path.join(__dirname, '../client/dist')));
 
 server.get("/menu", function (req, res) {
 
