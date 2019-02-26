@@ -57,11 +57,9 @@ class Menu extends React.Component {
 export default Menu;
 
 //Set up styled-component
-
 const Container = styled.div`
   max-width: 620px;
   overflow: hidden;
-  ${'' /* margin: 2% 0 2% 0%; */}
 `;
 
 const NextLine = styled.br``;

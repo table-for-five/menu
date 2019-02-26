@@ -2,16 +2,15 @@ const connection = require("./db");
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-
-let server = express();
-
+const compression = require('compression');
+const server = express();
 server.use(cors());
+server.use(compression());
+
 server.use(express.static(path.join(__dirname, '../client/dist')));
 
 server.get("/menu", function (req, res) {
-
   let meal = req.query.q === undefined ? 'lunch' : req.query.q;
-  console.log('MEAL: ', meal);
   let queryStr = "select * from " + meal;
   connection.connection.query(queryStr, function (err, result) {
     if (err) {
@@ -22,4 +21,6 @@ server.get("/menu", function (req, res) {
   });
 });
 
+server.use("/:id", express.static(path.join(__dirname, '../client/dist')));
 module.exports = server;
+
